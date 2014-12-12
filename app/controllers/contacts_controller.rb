@@ -16,9 +16,9 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(params.require(:contact).permit(:name, :mission_statement, :description, :frequency, :duration, :text))
+    @contact = Contact.new(params.require(:contact).permit(:name, :email, :business, :notes))
     if @contact.save!
-      redirect_to contacts_path
+      redirect_to root_path
     else
       render :new
     end
